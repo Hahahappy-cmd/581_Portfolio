@@ -14,7 +14,13 @@ npm run build
 npm run preview
 ```
 
-The homepage is `/`. The case study is `/projects/four-part-harmony`. Vite serves both routes locally. A future static host must serve `index.html` for application routes; `public/_redirects` includes the Netlify fallback. The preserved original application is `/project/index.html`.
+The site uses the `/581_Portfolio/` base path locally and on GitHub Pages. The homepage is `/581_Portfolio/`, the case study is `/581_Portfolio/projects/four-part-harmony/`, and the preserved original application is `/581_Portfolio/project/index.html`. Use the URL printed by Vite when starting the development server.
+
+## GitHub Pages hosting
+
+In the GitHub repository, select **Settings > Pages > Build and deployment > Source > GitHub Actions**. After you push the changes to `main`, `.github/workflows/deploy-pages.yml` installs dependencies, builds, and deploys `dist`. You can also run the workflow manually from the Actions tab. No push or deployment has been performed locally.
+
+The published URL is `https://<username>.github.io/581_Portfolio/`. The repository name and casing must match `base` in `vite.config.js`. The build creates a physical case-study HTML entry so direct visits and refreshes work without server rewrites. Public assets and navigation use `src/paths.ts` to retain the repository prefix.
 
 ## Edit content
 

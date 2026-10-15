@@ -6,8 +6,9 @@ import {Home} from './pages/Home';
 import {CaseStudy} from './pages/CaseStudy';
 import {setupInteractions} from './interactions';
 import './styles.css';
+import {sitePath} from './paths';
 function App() {
- const caseStudy = window.location.pathname.replace(/\/$/, '') === '/projects/four-part-harmony';
+ const caseStudy = window.location.pathname.replace(/\/$/, '') === sitePath('projects/four-part-harmony');
  useEffect(() => {
    document.title = caseStudy ? 'Four-Part Harmony | Happy Prajapati' : 'Happy Prajapati | CPSC 581 HCI Portfolio';
    setupInteractions();
