@@ -4,15 +4,19 @@ import {Navigation} from './components/Navigation';
 import {Footer} from './components/Footer';
 import {Home} from './pages/Home';
 import {CaseStudy} from './pages/CaseStudy';
+import {AirSculpt} from './pages/AirSculpt';
 import {setupInteractions} from './interactions';
 import './styles.css';
 import {sitePath} from './paths';
 function App() {
- const caseStudy = window.location.pathname.replace(/\/$/, '') === sitePath('projects/four-part-harmony');
+ const path = window.location.pathname.replace(/\/$/, '');
+ const airSculpt = path === sitePath('projects/airsculpt');
+ const harmony = path === sitePath('projects/four-part-harmony');
+ const caseStudy = airSculpt || harmony;
  useEffect(() => {
-   document.title = caseStudy ? 'Four-Part Harmony | Happy Prajapati' : 'Happy Prajapati | CPSC 581 HCI Portfolio';
+   document.title = airSculpt ? 'AirSculpt | Happy Prajapati' : harmony ? 'Four-Part Harmony | Happy Prajapati' : 'Happy Prajapati | CPSC 581 HCI Portfolio';
    setupInteractions();
- }, [caseStudy]);
- return <><div className="preloader" aria-hidden="true"><span>HP<span className="accent">.</span></span><i /></div><a className="skip" href="#main">Skip to content</a><Navigation caseStudy={caseStudy}/><main id="main">{caseStudy ? <CaseStudy/> : <Home/>}</main><Footer showAcknowledgement={!caseStudy}/></>;
+ }, [airSculpt, harmony]);
+ return <><div className="preloader" aria-hidden="true"><span>HP<span className="accent">.</span></span><i /></div><a className="skip" href="#main">Skip to content</a><Navigation caseStudy={caseStudy}/><main id="main">{airSculpt ? <AirSculpt/> : harmony ? <CaseStudy/> : <Home/>}</main><Footer showAcknowledgement={!caseStudy}/></>;
 }
 createRoot(document.getElementById('root')!).render(<App/>);

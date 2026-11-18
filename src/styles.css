@@ -28,3 +28,9 @@ html:has(.acknowledgement-dialog[open]){overflow:hidden}
 .acknowledgement-trigger span{font-size:20px;line-height:1;transition:transform .18s}
 .acknowledgement-trigger:hover{color:var(--accent);border-color:var(--accent)}
 .acknowledgement-trigger:hover span{transform:translate(2px,-2px)}
+
+.project-list{display:grid;gap:40px}
+.airsculpt-final{margin:45px 0 0}
+.airsculpt-final img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px}
+.airsculpt-final figcaption{margin-top:12px;color:var(--muted)}
+.airsculpt-process{row-gap:45px}

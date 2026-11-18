@@ -8,10 +8,12 @@ export default defineConfig({
     name: 'github-pages-static-routes',
     writeBundle(options) {
       const output = resolve(options.dir || 'dist');
-      const caseStudy = resolve(output, 'projects/four-part-harmony');
-      mkdirSync(caseStudy, {recursive: true});
-      // Pages serves this real file for direct visits and refreshes.
-      copyFileSync(resolve(output, 'index.html'), resolve(caseStudy, 'index.html'));
+      // Pages serves these real files for direct visits and refreshes.
+      for (const slug of ['four-part-harmony', 'airsculpt']) {
+        const caseStudy = resolve(output, 'projects', slug);
+        mkdirSync(caseStudy, {recursive: true});
+        copyFileSync(resolve(output, 'index.html'), resolve(caseStudy, 'index.html'));
+      }
       writeFileSync(resolve(output, '.nojekyll'), '');
     },
   }],
