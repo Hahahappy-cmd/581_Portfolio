@@ -48,9 +48,9 @@ export function setupInteractions() {
     const dpr = Math.min(devicePixelRatio || 1, 1.5);
     canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    particles = Array.from({length: width < 700 ? 25 : 65}, () => ({
+    particles = Array.from({length: width < 700 ? 45 : 120}, () => ({
       x: Math.random() * width, y: Math.random() * height,
-      r: Math.random() * 1.1 + .3, speed: Math.random() * 5 + 2, alpha: Math.random() * .35 + .12
+      r: Math.random() * 1.1 + .3, speed: Math.random() * 5 + 2, alpha: Math.random() * .4 + .2
     }));
     paint(0);
   }
