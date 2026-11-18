@@ -1,15 +1,6 @@
 export function setupInteractions() {
   'use strict';
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const loader = document.querySelector('.preloader');
-  // Deferred script runs after parsing; there is no artificial minimum duration.
-  if (loader && !motion.matches) {
-    loader.classList.add('loading');
-    const dismiss = () => loader.classList.remove('loading');
-    requestAnimationFrame(() => requestAnimationFrame(dismiss));
-    setTimeout(dismiss, 1200);
-    window.addEventListener('pageshow', dismiss);
-  }
   if ('IntersectionObserver' in window) {
     const reveal = new IntersectionObserver(entries => {
       entries.forEach(entry => {

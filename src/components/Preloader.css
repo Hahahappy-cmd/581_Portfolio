@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'Portfolio Preloader Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/preloader-fonts/inter-600.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Portfolio Preloader Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/preloader-fonts/jetbrains-mono-400.ttf') format('truetype');
+}
+
+/* Local styles reproduce the reference without changing the site's theme. */
+.portfolio-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #0a0a0a;
+  font-family: 'Portfolio Preloader Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.portfolio-preloader__canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.portfolio-preloader__location {
+  position: absolute;
+  bottom: 40px;
+  left: 24px;
+  z-index: 30;
+  margin: 0;
+  font-family: 'Portfolio Preloader Mono', ui-monospace, 'SFMono-Regular', monospace;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #2563eb;
+}
+
+.portfolio-preloader__greetings {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.portfolio-preloader__word {
+  font-size: 14vw;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .portfolio-preloader__word { font-size: 110px; }
+}
+
+@media (min-width: 768px) {
+  .portfolio-preloader__location { left: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-preloader { display: none; }
+}

@@ -5,6 +5,7 @@ import {Footer} from './components/Footer';
 import {Home} from './pages/Home';
 import {CaseStudy} from './pages/CaseStudy';
 import {AirSculpt} from './pages/AirSculpt';
+import Preloader from './components/Preloader';
 import {setupInteractions} from './interactions';
 import './styles.css';
 import {sitePath} from './paths';
@@ -17,6 +18,6 @@ function App() {
    document.title = airSculpt ? 'AirSculpt | Happy Prajapati' : harmony ? 'Four-Part Harmony | Happy Prajapati' : 'Happy Prajapati | CPSC 581 HCI Portfolio';
    setupInteractions();
  }, [airSculpt, harmony]);
- return <><div className="preloader" aria-hidden="true"><span>HP<span className="accent">.</span></span><i /></div><a className="skip" href="#main">Skip to content</a><Navigation caseStudy={caseStudy}/><main id="main">{airSculpt ? <AirSculpt/> : harmony ? <CaseStudy/> : <Home/>}</main><Footer showAcknowledgement={!caseStudy}/></>;
+ return <><Preloader/><a className="skip" href="#main">Skip to content</a><Navigation caseStudy={caseStudy}/><main id="main">{airSculpt ? <AirSculpt/> : harmony ? <CaseStudy/> : <Home/>}</main><Footer showAcknowledgement={!caseStudy}/></>;
 }
 createRoot(document.getElementById('root')!).render(<App/>);

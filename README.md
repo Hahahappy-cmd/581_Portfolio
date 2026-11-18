@@ -29,7 +29,9 @@ The published URL is `https://<username>.github.io/581_Portfolio/`. The reposito
 - `src/pages/AirSculpt.tsx`: Group Project 2 overview, six-stage design process, group evidence, individual contributions, video, and draft reflection.
 - `src/components/`: shared navigation, footer, project cards, and evidence images.
 - `src/styles.css`: responsive layout, colours, and reduced-motion rules.
-- `src/interactions.js`: canvas particles, section animation, active navigation, preloader, and video play control.
+- `src/interactions.js`: hero canvas particles, section animation, active navigation, and video play control.
+- `src/components/Preloader.tsx` and `Preloader.css`: the isolated GSAP greeting/warp intro.
+- `src/assets/preloader-fonts/`: reference typography and font licenses.
 - `public/assets/`: supplied video and write-up, plus authentic page renders and the final application screenshot extracted from the write-up.
 
 ## Contribution attribution
@@ -42,7 +44,7 @@ Case-study facts come from the supplied Four-Part Harmony and AirSculpt write-up
 
 Both real demonstration videos use native playback controls, `preload="none"`, inline mobile playback, and no autoplay. The posters are screenshots extracted from the respective group write-ups, not decoded video frames. No captions or transcript were supplied.
 
-Content is visible without animation initialization. Reduced motion disables motion effects; the canvas pauses offscreen and when the tab is hidden. The preloader has no fixed minimum duration and a CSS timeout fallback. React requires JavaScript to render the application itself.
+Content is visible without animation initialization. Reduced motion disables motion effects; the canvas pauses offscreen and when the tab is hidden. The custom preloader follows the supplied greeting/warp timeline: HELLO, नमस्ते, કેમ છો, then white radial streaks. The overlay hides around 5.15 seconds and finishes around 6.05 seconds, restoring the previous body overflow. Reduced motion skips it, including when enabled during playback. It runs once per mount, so full document navigation replays it and anchor links do not. Its fonts are bundled locally with their licenses, and its CSS is scoped to the component. React requires JavaScript to render the application itself.
 
 ## Group Project 2: AirSculpt
 
